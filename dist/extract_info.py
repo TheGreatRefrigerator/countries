@@ -133,8 +133,11 @@ with open(file, 'r') as f:
 	Data2 = cleanData(Data2)
 	print "\ncleanup 'Iceland' cid"
 
+	idx = 0
 	for obj in Data2:
 		obj['cid'] = str(obj['cid'][0])
+		obj['id'] = idx
+		idx+=1
 
 	with codecs.open(res, 'w', encoding="utf-8") as f2 :
 		f2.write(json.dumps(Data2, indent = 4, ensure_ascii = True))
